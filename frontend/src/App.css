@@ -1,0 +1,201 @@
+/* App.css */
+
+/* Definimos colores pastel */
+:root {
+  --primary-color: #000001;
+  --secondary-color: #ff8f70;
+  --accent-color: #5cb85c;
+  --delete-color: #b73d34;
+  --cancel-color: #b0b0b0;
+  --background-color: #f7f9fc;
+  --text-color: #000;
+  --input-bg-color: #ffffff;
+  --button-bg-color: #6c8dfd;
+  --button-hover-bg-color: #5a76e7;
+  --table-header-color: #f1f3f7;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background-color: var(--background-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Encabezados */
+h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+}
+
+/* Estilo de los botones */
+button {
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 4px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button:disabled {
+  background-color: #f1a3a3;
+  cursor: not-allowed;
+}
+
+/* Botón de agregar/editar */
+button.add-edit-btn {
+  background-color: var(--accent-color);
+}
+
+button.add-edit-btn:hover {
+  background-color: #4cae4c;
+}
+
+/* Botón de eliminar */
+button.delete-btn {
+  background-color: var(--delete-color);
+}
+
+button.delete-btn:hover {
+  background-color: #e53935;
+}
+
+/* Botón de cancelar */
+button.cancel-btn {
+  background-color: var(--cancel-color);
+}
+
+button.cancel-btn:hover {
+  background-color: #a6a6a6;
+}
+
+/* Estilos de la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0px 0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+th, td {
+  text-align: center;
+  padding: 5px 5px;
+}
+
+thead {
+  background-color: var(--table-header-color);
+}
+
+th {
+  background-color: #74aff3;
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+tr {
+  background-color: #ffffff;
+  transition: background-color 0.3s;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+td {
+  color: var(--text-color);
+}
+
+/* Formulario de agregar y editar */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background-color: var(--input-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+form input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+label {
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+/* Contenedor de agregar producto */
+.add-product-container {
+  margin-top: 30px;
+}
+
+.paginador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  table, th, td {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  td {
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+  }
+}
