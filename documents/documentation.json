@@ -1,5 +1,5 @@
 {
-  "openapi": "3.1.0",
+  "openapi": "3.0.3",
   "info": {
     "title": "API Productos",
     "description": "API para la gestión de productos.",
@@ -133,6 +133,17 @@
       "get": {
         "summary": "Obtener un producto por su ID",
         "description": "Este endpoint permite obtener los detalles de un producto a partir de su ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del producto",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Detalles del producto",
@@ -174,6 +185,17 @@
       "put": {
         "summary": "Actualizar un producto",
         "description": "Este endpoint permite actualizar los detalles de un producto existente.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del producto a actualizar",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -247,6 +269,17 @@
       "delete": {
         "summary": "Eliminar un producto",
         "description": "Este endpoint permite eliminar un producto por su ID.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID del producto a eliminar",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "responses": {
           "204": {
             "description": "Producto eliminado exitosamente"

@@ -60,3 +60,14 @@ Desde el navegador puede validar el funcionamiento del frontend en la URL
 Para revisar los diagramas diseñados debera ingresar a la siguiente URL https://app.diagrams.net/ y tomar el archivo ubicado en la carpeta diagrams
 
 archivo: diagramsC4.drawio
+
+### 8. Documentación Swaguer
+Desde postmas se puede importar el archivo documentado en swagguer o desde la pagina https://editor.swagger.io/
+
+archivo: documentation.json
+
+### 9. Pruebas Unitarias (Frontend)
+
+En este archivo se encuentran varias imagenes de la funcionalidad de la aplicación web
+
+archivo: Pruebas Unitarias.docx
