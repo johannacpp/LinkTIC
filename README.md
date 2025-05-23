@@ -7,7 +7,7 @@ Este proyecto consta de 2 partes del backend (API REST) que gestiona productos, 
 - Tener Java 21 instalado y configurado para interartura con el codigo
 - Tener Apache Maven instalado y configurado para construir el empaquetado
 - Tener Docker instalado en la máquina
-- Tener Nodejs instaldo y configurado
+- Tener Nodejs instalado y configurado
 
 ## Instrucciones para ejecutar el proyecto
 
@@ -29,13 +29,13 @@ git checkout main
 
 Luego debe ubicarse en la rama principal (Main)
 
-### 2. Generar el empaquetado de la API
+### 2. Generar el empaquetado de la API (Backend)
 Desde consola ingrese a la carpeta del backend y ejectue el comando para limpir y generar el .jar
 ```bash
 cd backend/
 mvn clean install package
 ```
-### 3. Contenerización del API
+### 3. Contenerización del API (Backend)
 Ejectue el siguiente comando:
 ```bash
 docker-compose up
@@ -55,3 +55,8 @@ npm start
 ### 6. Validar funcionalidad (Frontend)
 Desde el navegador puede validar el funcionamiento del frontend en la URL
 (http://localhost:3000/)
+
+### 7. Diagramas C4
+Para revisar los diagramas diseñados debera ingresar a la siguiente URL https://app.diagrams.net/ y tomar el archivo ubicado en la carpeta diagrams
+
+archivo: diagramsC4.drawio

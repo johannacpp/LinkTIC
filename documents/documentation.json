@@ -1,0 +1,264 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "API Productos",
+    "description": "API para la gestión de productos.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Servidor local"
+    }
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "summary": "Obtener listado de productos paginados",
+        "description": "Este endpoint permite obtener un listado de productos de manera paginada.",
+        "responses": {
+          "200": {
+            "description": "Listado de productos paginados",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "ID del producto"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nombre del producto"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "Descripción del producto"
+                      },
+                      "price": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "Precio del producto"
+                      }
+                    },
+                    "required": ["id", "name", "description", "price"]
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Solicitud incorrecta"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      },
+      "post": {
+        "summary": "Crear un nuevo producto",
+        "description": "Este endpoint permite crear un nuevo producto.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Nombre del producto",
+                    "example": "Producto 1"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Descripción del producto",
+                    "example": "Descripción del Producto 1"
+                  },
+                  "price": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "Precio del producto",
+                    "example": 100.0
+                  }
+                },
+                "required": ["name", "description", "price"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Producto creado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "ID del producto recién creado"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Nombre del producto"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Descripción del producto"
+                    },
+                    "price": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "Precio del producto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Datos inválidos en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "summary": "Obtener un producto por su ID",
+        "description": "Este endpoint permite obtener los detalles de un producto a partir de su ID.",
+        "responses": {
+          "200": {
+            "description": "Detalles del producto",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "ID del producto"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Nombre del producto"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Descripción del producto"
+                    },
+                    "price": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "Precio del producto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Producto no encontrado"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      },
+      "put": {
+        "summary": "Actualizar un producto",
+        "description": "Este endpoint permite actualizar los detalles de un producto existente.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Nombre del producto",
+                    "example": "Producto Actualizado"
+                  },
+                  "description": {
+                    "type": "string",
+                    "description": "Descripción del producto",
+                    "example": "Descripción actualizada"
+                  },
+                  "price": {
+                    "type": "number",
+                    "format": "float",
+                    "description": "Precio actualizado del producto",
+                    "example": 150.0
+                  }
+                },
+                "required": ["name", "description", "price"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Producto actualizado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "ID del producto actualizado"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Nombre del producto"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "Descripción del producto"
+                    },
+                    "price": {
+                      "type": "number",
+                      "format": "float",
+                      "description": "Precio del producto"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Datos inválidos en la solicitud"
+          },
+          "404": {
+            "description": "Producto no encontrado"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Eliminar un producto",
+        "description": "Este endpoint permite eliminar un producto por su ID.",
+        "responses": {
+          "204": {
+            "description": "Producto eliminado exitosamente"
+          },
+          "404": {
+            "description": "Producto no encontrado"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    }
+  }
+}
